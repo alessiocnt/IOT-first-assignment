@@ -11,6 +11,7 @@ static unsigned long previousTime = 0;
 void restartGame() {
     if(firstTimeIn) {
         firstTimeIn = false;
+        digitalWrite(currentPosition, LOW);
         previousTime = millis();
         digitalWrite(STARTING_LED, HIGH);
         Serial.println("Game Over - Score: ");
