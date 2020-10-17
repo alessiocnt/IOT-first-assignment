@@ -22,6 +22,8 @@ void restartGame() {
 }
 
 void initialize() {
+    firstTimeIn = true;
+    previousTime = 0;
     startReset();
     eventHandlerReset();
     score = 0;
