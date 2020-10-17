@@ -13,7 +13,8 @@ void restartGame() {
         firstTimeIn = false;
         previousTime = millis();
         digitalWrite(STARTING_LED, HIGH);
-        Serial.println("Game Over - Score: " + score);
+        Serial.println("Game Over - Score: ");
+        Serial.println(score);
         initialize();
     }
     endingLed();

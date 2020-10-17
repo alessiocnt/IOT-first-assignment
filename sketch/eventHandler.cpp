@@ -53,7 +53,8 @@ void onPression(unsigned char button) {
         return;
     }
     score++;
-    Serial.println("Tracking the fly: pos " + currentPosition);
+    Serial.println("Tracking the fly: pos ");
+    Serial.println(currentPosition);
     currentPosition = nextPosition();
     tMin = tMin/2;
 }
