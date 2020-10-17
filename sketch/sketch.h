@@ -19,11 +19,11 @@
 #define GAMING_STATE 1
 #define END_STATE 2
 
-extern unsigned char state;
-extern int k;
-extern unsigned char score;
-extern unsigned char currentPosition;
-extern unsigned char tMin;
-extern unsigned long tPression;
+extern volatile unsigned char state;
+extern volatile int k;
+extern volatile unsigned char score;
+extern volatile unsigned char currentPosition;
+extern volatile unsigned char tMin;
+extern volatile unsigned long tPression;
 
 #endif

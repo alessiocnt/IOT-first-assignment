@@ -5,12 +5,12 @@
 #include "end.h"
 #include "eventHandler.h"
 
-unsigned char state;
-int k;
-unsigned char score;
-unsigned char currentPosition;
-unsigned char tMin;
-unsigned long tPression;
+volatile unsigned char state;
+volatile int k;
+volatile unsigned char score;
+volatile unsigned char currentPosition;
+volatile unsigned char tMin;
+volatile unsigned long tPression;
 
 void setup() {
     pinMode(STARTING_LED, OUTPUT);
