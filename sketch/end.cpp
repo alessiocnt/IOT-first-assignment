@@ -29,5 +29,6 @@ void endingLed() {
     long timeStamp = millis();
     if(timeStamp - previousTime > 2000) {
         digitalWrite(STARTING_LED, LOW);
+        state = STARTING_STATE;
     }
 }
