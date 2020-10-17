@@ -7,6 +7,7 @@
 static bool firstPression = true;
 
 void button1Pressed() {
+    tPression = millis();
     if(firstPression) {
         firstPression = false;
         startGame();
@@ -16,12 +17,15 @@ void button1Pressed() {
 }
 
 void button2Pressed() {
+    tPression = millis();
     onPression(2);
 }
 void button3Pressed() {
+    tPression = millis();
     onPression(3);
 }
 void button4Pressed() {
+    tPression = millis();
     onPression(4);
 }
 
@@ -34,8 +38,8 @@ void startGame() {
     k = map(k, 0, 1023, 0, 7);
     state = GAMING_STATE;
     currentPosition = rand() % 4 + 1;
-    tMin = levels[k]*100;
-    tPression = millis();
+    tMin = levels[k]*500;
+    // tPression = millis();
     Serial.println("Go!");
 }
 
