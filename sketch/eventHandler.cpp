@@ -73,11 +73,23 @@ bool preventBouncing() {
 
 /* Return a position near the current one */
 unsigned char nextPosition() {
-    int rnd = (rand() % 2 ? -1 : 1);
+    int rnd = rand() % 2;   // rnd can be 0 or 1
+    if (rnd == 0) {
+        rnd = -1;
+    }
+    if (currentPosition == 4 && rnd == 1) {
+        return 1;
+    } else if (currentPosition == 1 && rnd == -1) {
+        return 4;
+    } else {
+        return currentPosition + rnd;
+    }
+    
+    /* int rnd = (rand() % 2 ? -1 : 1);
     if (currentPosition + rnd <= 0) {
         return 4;
     }
-    return ((currentPosition + rnd) % 4) +1;
+    return ((currentPosition + rnd) % 4) +1; */
 }
 
 /* Reset the game variables */ 
