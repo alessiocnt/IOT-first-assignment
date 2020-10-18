@@ -33,13 +33,14 @@ void button4Pressed() {
     Start the game. */
 void startGame() {
     static unsigned char levels[] = {80, 70, 60, 50, 40, 30, 20, 10};
+    static int level;
     digitalWrite(STARTING_LED, LOW);
-    k = analogRead(POT);
-    k = map(k, 0, 1023, 0, 7);
+    level = analogRead(POT);
+    level = map(level, 0, 1023, 0, 7);
     state = GAMING_STATE;
     currentPosition = rand() % 4 + 1;
     digitalWrite(leds[currentPosition - 1], HIGH);
-    tMin = levels[k];
+    tMin = levels[level];
     tForMovement = calculateTimeForMovement();
     // tPression = millis();
     Serial.println("Go!");

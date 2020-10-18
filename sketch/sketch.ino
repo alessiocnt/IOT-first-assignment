@@ -26,7 +26,7 @@ void setup() {
     pinMode(BUTTON3, INPUT);
     pinMode(BUTTON4, INPUT);
 
-    Serial.begin(115200);
+    Serial.begin(9600);
 
     enableInterrupt(BUTTON1, button1Pressed, RISING);
     enableInterrupt(BUTTON2, button2Pressed, RISING);
