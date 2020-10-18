@@ -3,10 +3,10 @@
 
 #define STARTING_LED 6
 
-#define LED1 1
-#define LED2 2
-#define LED3 3
-#define LED4 4
+#define LED1 2
+#define LED2 3
+#define LED3 4
+#define LED4 5
 
 #define POT A0
 
