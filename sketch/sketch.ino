@@ -5,12 +5,13 @@
 #include "end.h"
 #include "eventHandler.h"
 
+int k;
 volatile unsigned char state;
-volatile int k;
 volatile unsigned char score;
 volatile unsigned char currentPosition;
 volatile unsigned char tMin;
 volatile unsigned long tPression;
+volatile unsigned char leds[] = {LED1, LED2, LED3, LED4};
 
 void setup() {
     pinMode(STARTING_LED, OUTPUT);

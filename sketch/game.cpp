@@ -3,9 +3,9 @@
 #include "game.h"
  
 void gamingPhase() {
-    digitalWrite(currentPosition, HIGH);
-    unsigned long tNow = millis();
-    if (tNow - tPression > (k+1)*tMin) {
+    digitalWrite(leds[currentPosition - 1], HIGH);
+    // k*tMin
+    if (millis() - tPression > 10000) {
         state = END_STATE;
     }
 }

@@ -33,12 +33,14 @@ void button4Pressed() {
     Start the game. */
 void startGame() {
     static unsigned char levels[] = {8, 7, 6, 5, 4, 3, 2, 1};
+    static int level;
     digitalWrite(STARTING_LED, LOW);
-    k = analogRead(POT);
-    k = map(k, 0, 1023, 0, 7);
+    // level = analogRead(POT);
+    // level = map(k, 0, 1023, 0, 7);
+    level = 0;
     state = GAMING_STATE;
     currentPosition = rand() % 4 + 1;
-    tMin = levels[k]*500;
+    tMin = levels[level]*1000;
     // tPression = millis();
     Serial.println("Go!");
 }
@@ -55,6 +57,7 @@ void onPression(unsigned char button) {
     score++;
     Serial.println("Tracking the fly: pos ");
     Serial.println(currentPosition);
+    digitalWrite(leds[currentPosition - 1], LOW);
     currentPosition = nextPosition();
     tMin = tMin/2;
 }
