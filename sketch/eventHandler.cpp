@@ -32,7 +32,7 @@ void button4Pressed() {
 /* Set the variable for the game.
     Start the game. */
 void startGame() {
-    static unsigned char levels[] = {8, 7, 6, 5, 4, 3, 2, 1};
+    static unsigned char levels[] = {80, 70, 60, 50, 40, 30, 20, 10};
     static int level;
     digitalWrite(STARTING_LED, LOW);
     // level = analogRead(POT);
@@ -40,7 +40,8 @@ void startGame() {
     level = 0;
     state = GAMING_STATE;
     currentPosition = rand() % 4 + 1;
-    tMin = levels[level]*1000;
+    tMin = levels[level];
+    tForMovement = calculateTimeForMovement();
     // tPression = millis();
     Serial.println("Go!");
 }
@@ -60,7 +61,7 @@ void onPression(unsigned char button) {
     Serial.println(currentPosition);
     currentPosition = nextPosition();
     tMin = tMin/2;
-    tForMovement = tmin + rand() % (k * tMin - tMin + 1);
+    tForMovement = calculateTimeForMovement();
 }
 
 /* True if the button pression is correct 
@@ -94,6 +95,11 @@ unsigned char nextPosition() {
         return 4;
     }
     return ((currentPosition + rnd) % 4) +1; */
+}
+
+/* Calculates the time needed to perform the next movement */
+unsigned char calculateTimeForMovement() {
+    return tMin + (rand() % (k * tMin - tMin + 1));
 }
 
 /* Reset the game variables */ 

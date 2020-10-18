@@ -4,7 +4,7 @@
  
 void gamingPhase() {
     digitalWrite(leds[currentPosition - 1], HIGH);
-    if (millis() - tPression > tForMovement) {
+    if (millis() - tPression >= 100 * tForMovement) {
         state = END_STATE;
     }
 }

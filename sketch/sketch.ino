@@ -34,7 +34,7 @@ void setup() {
     enableInterrupt(BUTTON4, button4Pressed, RISING);
 
     state = STARTING_STATE;
-    k = 5;
+    k = 15;
     score = 0;
 }
 
