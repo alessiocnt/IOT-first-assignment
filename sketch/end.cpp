@@ -14,7 +14,7 @@ void restartGame() {
         digitalWrite(leds[currentPosition - 1], LOW);
         previousTime = millis();
         digitalWrite(STARTING_LED, HIGH);
-        Serial.println("Game Over - Score: ");
+        Serial.print("Game Over - Score: ");
         Serial.println(score);
         initialize();
     }
