@@ -8,6 +8,7 @@
 static bool firstTimeIn = true;
 static unsigned long previousTime = 0;
 
+/* Manage the ending led and serial print */
 void restartGame() {
     if(firstTimeIn) {
         firstTimeIn = false;
@@ -21,6 +22,7 @@ void restartGame() {
     endingLed();
 }
 
+/* Reset the game variables associated with this file and the other ones*/ 
 void initialize() {
     firstTimeIn = true;
     previousTime = 0;
@@ -29,6 +31,7 @@ void initialize() {
     score = 0;
 }
 
+/* Let the ending led high through multiple cycles */
 void endingLed() {
     long timeStamp = millis();
     if(timeStamp - previousTime > 2000) {

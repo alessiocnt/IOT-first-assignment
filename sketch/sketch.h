@@ -1,14 +1,14 @@
 #ifndef __SKETCHLIB_H__
 #define __SKETCHLIB_H__
 
+/* Overall definitions and variables used in other files */
 #define STARTING_LED 6
+#define POT A0
 
 #define LED1 2
 #define LED2 3
 #define LED3 4
 #define LED4 5
-
-#define POT A0
 
 #define BUTTON1 8
 #define BUTTON2 9

@@ -1,7 +1,7 @@
 #ifndef __GAMELIB_H__
 #define __GAMELIB_H__
 
-/* public */
+/* Function used to time the game */
 void gamingPhase();
 
 #endif

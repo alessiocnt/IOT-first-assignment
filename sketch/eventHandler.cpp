@@ -6,6 +6,7 @@
 
 static bool firstPression = true;
 
+/* If is the first pression on T1 the game has to start, otherwise is a gaming pression */
 void button1Pressed() {
     tPression = millis();
     if(firstPression) {
@@ -16,21 +17,26 @@ void button1Pressed() {
     }
 }
 
+/* Gaming pression associated to button n.2*/
 void button2Pressed() {
     tPression = millis();
     onPression(2);
 }
+
+/* Gaming pression associated to button n.3*/
 void button3Pressed() {
     tPression = millis();
     onPression(3);
 }
+
+/* Gaming pression associated to button n.4*/
 void button4Pressed() {
     tPression = millis();
     onPression(4);
 }
 
 /* Set the variable for the game.
-    Start the game. */
+    Start the game */
 void startGame() {
     static unsigned char levels[] = {80, 70, 60, 50, 40, 30, 20, 10};
     static int level;
@@ -42,7 +48,6 @@ void startGame() {
     digitalWrite(leds[currentPosition - 1], HIGH);
     tMin = levels[level];
     tForMovement = calculateTimeForMovement();
-    // tPression = millis();
     Serial.println("Go!");
 }
 
@@ -67,7 +72,7 @@ void onPression(unsigned char button) {
     digitalWrite(leds[currentPosition - 1], LOW);
     currentPosition = nextPosition();
     digitalWrite(leds[currentPosition - 1], HIGH);
-    tMin = tMin/2;
+    tMin = tMin* 7 / 8;
     tForMovement = calculateTimeForMovement();
 }
 
@@ -96,12 +101,6 @@ unsigned char nextPosition() {
     } else {
         return currentPosition + rnd;
     }
-    
-    /* int rnd = (rand() % 2 ? -1 : 1);
-    if (currentPosition + rnd <= 0) {
-        return 4;
-    }
-    return ((currentPosition + rnd) % 4) +1; */
 }
 
 /* Calculates the time needed to perform the next movement */

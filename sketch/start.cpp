@@ -8,6 +8,7 @@ static unsigned char fadeAmount = 5;
 static unsigned char currentIntensity = 0;
 static bool firstCycle = true;
 
+/* Manage the initial fading led and serial print */
 void startingPhase() {
     if(firstCycle) {
         firstCycle = false;
@@ -16,6 +17,7 @@ void startingPhase() {
     fade();
 }
 
+/* Let the stating led fade through multiple cycles */
 void fade() {
     long timeStamp = micros();
     if(timeStamp - previousTime > 15000) {
@@ -28,7 +30,7 @@ void fade() {
     }
 }
 
-/* Reset the game variables */ 
+/* Reset the game variables associated with this file */ 
 void startReset() {
     previousTime = 0;
     fadeAmount = 5;
