@@ -33,14 +33,13 @@ void button4Pressed() {
     Start the game. */
 void startGame() {
     static unsigned char levels[] = {80, 70, 60, 50, 40, 30, 20, 10};
-    static int level;
     digitalWrite(STARTING_LED, LOW);
-    // level = analogRead(POT);
-    // level = map(k, 0, 1023, 0, 7);
-    level = 0;
+    k = analogRead(POT);
+    k = map(k, 0, 1023, 0, 7);
     state = GAMING_STATE;
     currentPosition = rand() % 4 + 1;
-    tMin = levels[level];
+    digitalWrite(leds[currentPosition - 1], HIGH);
+    tMin = levels[k];
     tForMovement = calculateTimeForMovement();
     // tPression = millis();
     Serial.println("Go!");
@@ -48,18 +47,25 @@ void startGame() {
 
 /* Controls the pression of a button */
 void onPression(unsigned char button) {
+    // Se sono nello stato sbagliato e premo un bottone non devo fare nulla
+    if (!state == GAMING_STATE) {
+      return;
+    }
     if (!preventBouncing()) {
-        return;
+      return;
     }
     if (button != currentPosition) {
-        state = END_STATE;
-        return;
+      digitalWrite(leds[currentPosition - 1], LOW);
+      state = END_STATE;
+      return;
     }
-    digitalWrite(leds[currentPosition - 1], LOW);
     score++;
-    Serial.println("Tracking the fly: pos ");
+    Serial.print("Tracking the fly: pos ");
     Serial.println(currentPosition);
+    // Spengo il vecchio led e accendo quello nuovo
+    digitalWrite(leds[currentPosition - 1], LOW);
     currentPosition = nextPosition();
+    digitalWrite(leds[currentPosition - 1], HIGH);
     tMin = tMin/2;
     tForMovement = calculateTimeForMovement();
 }

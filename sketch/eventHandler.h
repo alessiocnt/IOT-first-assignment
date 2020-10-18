@@ -11,5 +11,6 @@ static void startGame();
 static void onPression(unsigned char button);
 static bool preventBouncing();
 static unsigned char nextPosition();
+static unsigned char calculateTimeForMovement();
 
 #endif
