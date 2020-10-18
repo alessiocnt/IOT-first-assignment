@@ -1,3 +1,7 @@
+/* Group components:
+    Simone Ceredi
+    Alessio Conti - 874277 - alessio.conti3@studio.unibo.it */
+
 #include <EnableInterrupt.h>
 #include "sketch.h"
 #include "start.h"
