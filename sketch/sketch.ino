@@ -10,6 +10,7 @@ volatile unsigned char state;
 volatile unsigned char score;
 volatile unsigned char currentPosition;
 volatile unsigned char tMin;
+volatile unsigned char tForMovement;
 volatile unsigned long tPression;
 volatile unsigned char leds[] = {LED1, LED2, LED3, LED4};
 

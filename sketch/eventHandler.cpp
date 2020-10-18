@@ -54,12 +54,13 @@ void onPression(unsigned char button) {
         state = END_STATE;
         return;
     }
+    digitalWrite(leds[currentPosition - 1], LOW);
     score++;
     Serial.println("Tracking the fly: pos ");
     Serial.println(currentPosition);
-    digitalWrite(leds[currentPosition - 1], LOW);
     currentPosition = nextPosition();
     tMin = tMin/2;
+    tForMovement = tmin + rand() % (k * tMin - tMin + 1);
 }
 
 /* True if the button pression is correct 

@@ -24,6 +24,7 @@ extern volatile unsigned char state;
 extern volatile unsigned char score;
 extern volatile unsigned char currentPosition;
 extern volatile unsigned char tMin;
+extern volatile unsigned char tForMovement;
 extern volatile unsigned long tPression;
 extern volatile unsigned char leds[];
 
