@@ -1,4 +1,8 @@
+#define EI_ARDUINO_INTERRUPTED_PIN
+#define LIBCALL_ENABLEINTERRUPT
+
 #include <arduino.h>
+#include <EnableInterrupt.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include "sketch.h"
@@ -7,32 +11,15 @@
 static bool firstPression = true;
 
 /* If is the first pression on T1 the game has to start, otherwise is a gaming pression */
-void button1Pressed() {
+void buttonPressed() {
     tPression = millis();
-    if(firstPression) {
+    if(firstPression && arduinoInterruptedPin == BUTTON1) {
         firstPression = false;
         startGame();
     } else {
-        onPression(1);
+        Serial.println(arduinoInterruptedPin);
+        onPression(arduinoInterruptedPin - BUTTON_BASE);
     }
-}
-
-/* Gaming pression associated to button n.2*/
-void button2Pressed() {
-    tPression = millis();
-    onPression(2);
-}
-
-/* Gaming pression associated to button n.3*/
-void button3Pressed() {
-    tPression = millis();
-    onPression(3);
-}
-
-/* Gaming pression associated to button n.4*/
-void button4Pressed() {
-    tPression = millis();
-    onPression(4);
 }
 
 /* Set the variable for the game.

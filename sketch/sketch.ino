@@ -1,3 +1,5 @@
+#define EI_ARDUINO_INTERRUPTED_PIN
+
 #include <EnableInterrupt.h>
 #include "sketch.h"
 #include "start.h"
@@ -14,6 +16,7 @@ volatile unsigned char tForMovement;
 volatile unsigned long tPression;
 volatile unsigned char leds[] = {LED1, LED2, LED3, LED4};
 
+
 void setup() {
     pinMode(STARTING_LED, OUTPUT);
     pinMode(POT, INPUT);
@@ -28,10 +31,10 @@ void setup() {
 
     Serial.begin(9600);
 
-    enableInterrupt(BUTTON1, button1Pressed, RISING);
-    enableInterrupt(BUTTON2, button2Pressed, RISING);
-    enableInterrupt(BUTTON3, button3Pressed, RISING);
-    enableInterrupt(BUTTON4, button4Pressed, RISING);
+    enableInterrupt(BUTTON1, buttonPressed, RISING);
+    enableInterrupt(BUTTON2, buttonPressed, RISING);
+    enableInterrupt(BUTTON3, buttonPressed, RISING);
+    enableInterrupt(BUTTON4, buttonPressed, RISING);
 
     state = STARTING_STATE;
     k = 15;

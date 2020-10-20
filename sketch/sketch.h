@@ -10,6 +10,7 @@
 #define LED3 4
 #define LED4 5
 
+#define BUTTON_BASE 7
 #define BUTTON1 8
 #define BUTTON2 9
 #define BUTTON3 10
