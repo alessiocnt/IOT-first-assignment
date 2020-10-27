@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-/* Group components:
-    Simone Ceredi
-    Alessio Conti - 874277 - alessio.conti3@studio.unibo.it */
-=======
 #define EI_ARDUINO_INTERRUPTED_PIN
->>>>>>> 7d889698e24b8ab2e1c477d11a6692012219c918
 
 #include <EnableInterrupt.h>
 #include "sketch.h"

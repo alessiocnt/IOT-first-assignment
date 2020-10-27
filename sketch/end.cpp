@@ -24,8 +24,7 @@ void restartGame() {
 
 /* Reset the game variables associated with this file and the other ones*/ 
 void initialize() {
-    firstTimeIn = true;
-    previousTime = 0;
+    previousTime = millis();
     startReset();
     eventHandlerReset();
     score = 0;
@@ -36,6 +35,7 @@ void endingLed() {
     long timeStamp = millis();
     if(timeStamp - previousTime > 2000) {
         digitalWrite(STARTING_LED, LOW);
+        firstTimeIn = true;
         state = STARTING_STATE;
     }
 }

@@ -17,7 +17,6 @@ void buttonPressed() {
         firstPression = false;
         startGame();
     } else {
-        Serial.println(arduinoInterruptedPin);
         onPression(arduinoInterruptedPin - BUTTON_BASE);
     }
 }
@@ -30,6 +29,8 @@ void startGame() {
     digitalWrite(STARTING_LED, LOW);
     level = analogRead(POT);
     level = map(level, 0, 1023, 0, 7);
+    Serial.print("Level: ");
+    Serial.println(level);
     state = GAMING_STATE;
     currentPosition = rand() % 4 + 1;
     digitalWrite(leds[currentPosition - 1], HIGH);
