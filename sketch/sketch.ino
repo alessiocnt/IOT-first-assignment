@@ -1,3 +1,7 @@
+/* Group components:
+    Simone Ceredi - 881012 - simone.ceredi@studio.unibo.it
+    Alessio Conti - 874277 - alessio.conti3@studio.unibo.it */
+
 #define EI_ARDUINO_INTERRUPTED_PIN
 
 #include <EnableInterrupt.h>
